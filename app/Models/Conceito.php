@@ -14,4 +14,9 @@ class Conceito extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function projetos()
+    {
+        return $this->belongsToMany(Projeto::class);
+    }
+
 }

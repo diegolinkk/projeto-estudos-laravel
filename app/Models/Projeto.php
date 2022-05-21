@@ -14,4 +14,9 @@ class Projeto extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function conceitos()
+    {
+        return $this->belongsTo(Conceito::class);
+    }
+
 }
