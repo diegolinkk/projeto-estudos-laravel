@@ -29,4 +29,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+    <a href="{{route('cadastro_de_usuario')}}">Cadastro de usuário</a>
 @endsection
