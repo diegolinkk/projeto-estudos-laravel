@@ -19,18 +19,21 @@ Route::get('/', function () {
     return redirect()->route('cadastro_de_conceito');
 })->middleware('auth');
 
+//agrupando por controller
 Route::controller(LoginController::class)->group(function(){
     Route::get('/login','index')->name('login');
     Route::post('/login','login');
-    
+
     Route::get('/login/cadastro','cadastro_form')->name('cadastro_de_usuario');
     Route::post('/login/cadastro','cadastro');
 });
 
-
-
+//agrupamento de rota por middleware e em seguida agrupando por controller
 Route::middleware('auth')->group(function (){
+
+    //agrupando por controller
     Route::controller(ConceitoController::class)->group(function(){
         Route::get('/conceito/cadastro','cadastro_form')->name('cadastro_de_conceito');
+        Route::post('/conceito/cadastro','cadastro');
     });
 });
