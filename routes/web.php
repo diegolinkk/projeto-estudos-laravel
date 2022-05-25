@@ -33,6 +33,10 @@ Route::middleware('auth')->group(function (){
 
     //agrupando por controller
     Route::controller(ConceitoController::class)->group(function(){
+
+        Route::get('/conceito/index','listar')->name('listar_conceitos');
+        Route::get('/conceito/','listar');
+
         Route::get('/conceito/cadastro','cadastro_form')->name('cadastro_de_conceito');
         Route::post('/conceito/cadastro','cadastro');
     });

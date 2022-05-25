@@ -24,7 +24,14 @@ class ConceitoController extends Controller
         $conceito->pontos = 0;
         $conceito->save();
 
-
         return back();
+    }
+
+    public function listar()
+    {
+        $conceitos = Conceito::all();
+        return view('conceito/index',[
+            'conceitos' => $conceitos,
+        ]);
     }
 }
