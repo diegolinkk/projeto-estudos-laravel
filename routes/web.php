@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConceitoController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('template');
+    return redirect()->route('cadastro_de_conceito');
 })->middleware('auth');
 
-Route::get('/login',[LoginController::class,'index'])->name('login');
-Route::post('/login',[LoginController::class,'login']);
-Route::get('/login/cadastro',[LoginController::class,'cadastro_form'])->name('cadastro_de_usuario');
-Route::post('/login/cadastro',[LoginController::class,'cadastro']);
+Route::controller(LoginController::class)->group(function(){
+    Route::get('/login','index')->name('login');
+    Route::post('/login','login');
+    
+    Route::get('/login/cadastro','cadastro_form')->name('cadastro_de_usuario');
+    Route::post('/login/cadastro','cadastro');
+});
+
+
+
+Route::middleware('auth')->group(function (){
+    Route::controller(ConceitoController::class)->group(function(){
+        Route::get('/conceito/cadastro','cadastro_form')->name('cadastro_de_conceito');
+    });
+});
