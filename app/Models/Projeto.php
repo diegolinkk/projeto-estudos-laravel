@@ -16,7 +16,7 @@ class Projeto extends Model
 
     public function conceitos()
     {
-        return $this->belongsTo(Conceito::class);
+        return $this->belongsToMany(Conceito::class);
     }
 
 }

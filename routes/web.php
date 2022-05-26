@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ConceitoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProjetoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('cadastro_de_conceito');
+    return redirect()->route('listar_conceitos');
 })->middleware('auth');
 
 //agrupando por controller
@@ -40,4 +41,11 @@ Route::middleware('auth')->group(function (){
         Route::get('/conceito/cadastro','cadastro_form')->name('cadastro_de_conceito');
         Route::post('/conceito/cadastro','cadastro');
     });
+    
+    Route::controller(ProjetoController::class)->group(function(){
+        Route::get('/projeto/cadastro','cadastro_form')->name('cadastro_de_projeto');
+        Route::post('/projeto/cadastro','cadastro')->name('cadastro_de_projeto');
+
+    });
+
 });
