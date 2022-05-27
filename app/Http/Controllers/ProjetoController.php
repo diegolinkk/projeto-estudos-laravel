@@ -25,18 +25,29 @@ class ProjetoController extends Controller
         $conceitos = $request->conceitos;
         $usuario = Auth::user();
 
+        //salvando um projeto
         $projeto = new Projeto();
         $projeto->nome = $nome;
         $projeto->descricao = $descricao;
         $projeto->user_id = $usuario->id;
         $projeto->save();
 
-        //adicionando os projetos
+        //adicionando os conceitos
+        //repare que eu adiciono o ID do conceito
+        //repare que eu fiz os attaches depois de criar o projeto na linha 33
         foreach($conceitos as $conceitoId){
             $projeto->conceitos()->attach($conceitoId);
         }
 
         return "cadastro realizado com sucesso - aqui vai voltar pra lista de projetos";
+    }
+
+    public function listar()
+    {
+        $projetos = Projeto::all();
+        return view('projeto/index',[
+            'projetos' => $projetos,
+        ]);
     }
 
 }
