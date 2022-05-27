@@ -21,8 +21,8 @@ Cadastro de Projeto
             <h5>Conceitos</h5>
             @foreach($conceitos as $conceito)
             <div class="form-check">
-                <input type="checkbox" name="conceitos[]" id="conceito-{{$loop->count}}" class="form-check-input" value="{{$conceito->id}}">
-                <label for="conceito-{{$loop->count}}" class="form-check-label">{{$conceito->nome}}</label>
+                <input type="checkbox" name="conceitos[]" id="conceito-{{$loop->iteration}}" class="form-check-input" value="{{$conceito->id}}">
+                <label for="conceito-{{$loop->iteration}}" class="form-check-label">{{$conceito->nome}}</label>
             </div>
             @endforeach
 

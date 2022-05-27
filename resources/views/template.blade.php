@@ -9,6 +9,10 @@
     <title>Gerenciador de Estudos</title>
 </head>
 <body>
+    @auth
+        @include('navbar')
+    @endauth
+
     <div class="container-fluid">
         <h1>@yield('titulo')</h1>
         @yield('conteudo')

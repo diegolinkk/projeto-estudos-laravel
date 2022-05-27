@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function (){
     
     Route::controller(ProjetoController::class)->group(function(){
         Route::get('/projeto/cadastro','cadastro_form')->name('cadastro_de_projeto');
-        Route::post('/projeto/cadastro','cadastro')->name('cadastro_de_projeto');
+        Route::post('/projeto/cadastro','cadastro');
 
         Route::get('/projeto/','listar')->name('listar_projetos');
         Route::get('/projeto/index','listar')->name('listar_projetos');

@@ -39,7 +39,7 @@ class ProjetoController extends Controller
             $projeto->conceitos()->attach($conceitoId);
         }
 
-        return "cadastro realizado com sucesso - aqui vai voltar pra lista de projetos";
+        return redirect()->route('listar_projetos');
     }
 
     public function listar()
