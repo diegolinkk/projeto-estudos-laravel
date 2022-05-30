@@ -25,7 +25,7 @@ Lista de projetos
                 @endif
 
                 <div> 
-                    <a href="#" class="btn btn-outline-primary">estudar</a> 
+                    <a href="{{route('estudar',['id' => $projeto->id ])}}" class="btn btn-outline-primary">estudar</a> 
                 </div>
 
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConceitoController;
+use App\Http\Controllers\EstudarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjetoController;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,7 @@ Route::middleware('auth')->group(function (){
         Route::get('/projeto/','listar')->name('listar_projetos');
         Route::get('/projeto/index','listar')->name('listar_projetos');
 
-    });
+        Route::get('projeto/estudar/{id}','estudar')->name('estudar');
 
+    });
 });

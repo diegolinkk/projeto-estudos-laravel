@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Conceito;
+use App\Models\Estudo;
 use App\Models\Projeto;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProjetoController extends Controller
 {
@@ -48,6 +51,29 @@ class ProjetoController extends Controller
         return view('projeto/index',[
             'projetos' => $projetos,
         ]);
+    }
+
+    public function estudar($id)
+    {
+        
+        $projeto = Projeto::find($id);
+
+        DB::beginTransaction();
+
+        //salvando o log de estudo
+        $estudo = new Estudo();
+        $estudo->projeto_id = $projeto->id;
+        $estudo->data_hora = new DateTime();
+        $estudo->save();
+
+        //clicando +1 em cada conceito
+        $projeto->conceitos->each(function(Conceito $conceito){
+            $conceito->pontos +=1;
+            $conceito->save();
+        });
+
+        DB::commit(); 
+        return redirect()->route('listar_projetos');
     }
 
 }
