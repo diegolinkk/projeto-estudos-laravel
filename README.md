@@ -9,6 +9,13 @@ Para cada progresso em um projeto, todos os conceitos abordados no mesmo recebem
 
 Todo o calendário de estudo dos projetos são registrados.
 
+## Requisitos para executar o projeto
+
+### PHP 8
+Ter o PHP 8+ instalado e configurado no ambiente. O PHP pode ser baixado [aqui](https://www.php.net/downloads.php)
+
+### Composer
+Composer é o gerenciador de pacotes do PHP e pode ser baixado [aqui](https://getcomposer.org/download/)
 ## Como executar esse projeto?
 
 Baixar o projeto:
@@ -20,7 +27,6 @@ Instalar as dependências do composer:
 ```powershell
 composer install
 ```
-
 
 ## Configurar o arquivo.env para testes:
 Renomear o arquivo que está na raiz .env.example para .env.
