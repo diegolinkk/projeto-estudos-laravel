@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ConceitoController;
 use App\Http\Controllers\EstudarController;
+use App\Http\Controllers\EstudoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjetoController;
 use Illuminate\Support\Facades\Route;
@@ -53,4 +54,10 @@ Route::middleware('auth')->group(function (){
         Route::get('projeto/estudar/{id}','estudar')->name('estudar');
 
     });
+
+    Route::controller(EstudoController::class)->group(function(){
+        Route::get('/estudo/index','listar')->name('listar_estudo');
+        Route::get('/estudo/','listar');
+    });
+
 });

@@ -16,6 +16,11 @@
                     <li > <a class="dropdown-item" href="{{route('cadastro_de_projeto')}}">Criar </a> </li>
                 </ul>
             </li>
+
+            <li class="nav-item dropdown">
+                <a href="{{route('listar_estudo')}}" class="nav-link">Histórico de estudo</a>
+            </li>
+
         </ul>
     </div>
 </nav>
