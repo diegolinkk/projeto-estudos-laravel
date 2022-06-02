@@ -22,44 +22,21 @@ Baixar o projeto:
 
 Entrar na pasta do projeto baixado
 
-Instalar as dependências do composer:
+Executar o script que está na raiz da pasta 'estudos':
 
 ```powershell
-composer install
+.\script_iniciar_projeto.ps1
 ```
-
-## Configurar o arquivo.env para testes:
-Renomear o arquivo que está na raiz .env.example para .env.
-Esse arquivo ja está pré configurado para ser executado em ambiente local.
-
-## Criar um arquivo de banco de dados vazio:
-Criar um arquivo vazio chamado 'database.sqlite' na pasta 'database'.
-
-### Se estiver no Windows:
-```powershell
-New-Item -Name .\database\database.sqlite -ItemType File
-```
-
-### Se estiver no Linux:
-```bash
-touch ./database/database.sqlite
-```
-
-## Executar as migrações no banco de dados:
-Após criar o arquivo acima, basta executar o comando:
-```
-php artisan migrate
-```
-
-## Gerar uma chave de API:
-```
-php artisan key:generate
-```
+Esse script vai instalar todas as dependências do composer,configurar o ambiente para 'teste' e criar o banco de dados
 
 ## Executar o web server local:
+Agora com todo o ambiente pronto, podemos rodar um servidor web embutido do Laravel para utilizar a aplicação:
+
 ```
 php artisan serve
 ```
 
 ## Criar usuário
 A primeira tela pede um login pois o sistema trabalha com autenticação. Basta clicar na opção de 'criar usuário' e criar um usuário para efetuar login e utilizar o sistema normalmente.
+
+Feedbacks podem ser enviados para diegolinkk@gmail.com
