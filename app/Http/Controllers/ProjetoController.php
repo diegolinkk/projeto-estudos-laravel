@@ -76,4 +76,22 @@ class ProjetoController extends Controller
         return redirect()->route('listar_projetos');
     }
 
+    public function remover($id)
+    {
+        DB::beginTransaction();
+            //removendo estudos relacionados ao projeto
+            $estudos = Estudo::where('projeto_id',$id)->get();
+            foreach($estudos as $estudo){
+                $estudo->delete();
+            }
+
+            $projeto = Projeto::find($id);
+
+            //removendo todos os conceitos relacionados
+            $projeto->conceitos()->detach();
+            $projeto->delete();
+        DB::commit();
+        
+        return redirect()->back();
+    }
 }

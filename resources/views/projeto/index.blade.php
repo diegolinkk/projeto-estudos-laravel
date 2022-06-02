@@ -19,14 +19,19 @@ Lista de projetos
                     <h5 class="card-title">Conceitos:</h5>
                 
                     @foreach($projeto->conceitos as $conceito)
-                        <div>
-                            {{$conceito->nome}}
-                        </div>
+                        <ul>
+                            <li>{{$conceito->nome}}</li>
+                        </ul>
+                        
                     @endforeach
                 @endif
 
                 <div> 
-                    <a href="{{route('estudar',['id' => $projeto->id ])}}" class="btn btn-outline-primary">estudar</a> 
+                    <a href="{{route('estudar',['id' => $projeto->id ])}}" class="btn btn-outline-primary"> <i class="fa-solid fa-book"></i> estudar</a> 
+                    <a 
+                    onclick="return confirm('Tem certeza que deseja remover o projeto?');" 
+                    href="{{route('remover_projeto',['id' => $projeto->id ])}}" 
+                    class="btn btn-outline-danger"> <i class="fa-solid fa-trash"></i> Remover</a> 
                 </div>
 
             </div>

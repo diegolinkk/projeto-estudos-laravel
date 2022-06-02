@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function (){
 
         Route::get('projeto/estudar/{id}','estudar')->name('estudar');
 
+        Route::get('projeto/remover/{id}','remover')->name('remover_projeto');
+
     });
 
     Route::controller(EstudoController::class)->group(function(){
