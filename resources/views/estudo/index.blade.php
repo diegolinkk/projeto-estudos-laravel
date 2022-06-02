@@ -1,14 +1,25 @@
 @extends('template')
 
 @section('titulo')
-    Histórico de estudos
+<i class="fa-solid fa-clock"></i> Histórico de estudos
 @endsection
 
 @section('conteudo')
-    <ul>
-        
+
+<table class="table">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Data e Hora</th>
+        <th scope="col">Projeto</th>
+    </thead>
+    <tbody>
         @foreach($estudos as $estudo)
-        <li>{{$estudo->id}} - {{ date('d/m/Y H:s',strtotime($estudo->data_hora)) }} - {{ $estudo->projeto->nome}}  </li>
+        <tr>
+            <th scope="row">{{$estudo->id}}</th>
+            <td>{{date('d/m/Y H:s', strtotime($estudo->data_hora)) }}</td>
+            <td>{{$estudo->projeto->nome}}</td>
+        </tr>
         @endforeach
-    </ul>
+    </tbody>
+</table>
 @endsection
