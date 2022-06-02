@@ -2,6 +2,7 @@
 
 @section('titulo')
 Lista de projetos
+<i class="fa-solid fa-bars-progress"></i>
 @endsection
 
 @section('conteudo')
