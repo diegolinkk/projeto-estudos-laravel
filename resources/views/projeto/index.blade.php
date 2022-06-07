@@ -27,7 +27,8 @@ Lista de projetos
                 @endif
 
                 <div> 
-                    <a href="{{route('estudar',['id' => $projeto->id ])}}" class="btn btn-outline-primary"> <i class="fa-solid fa-book"></i> estudar</a> 
+                    <a href="{{route('estudar',['id' => $projeto->id ])}}" class="btn btn-outline-primary"> <i class="fa-solid fa-book"></i> estudar</a>
+                    <a href="{{route('form_editar_projeto',['id'=> $projeto->id ])}}" class="btn btn-outline-secondary"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
                     <a 
                     onclick="return confirm('Tem certeza que deseja remover o projeto?');" 
                     href="{{route('remover_projeto',['id' => $projeto->id ])}}" 

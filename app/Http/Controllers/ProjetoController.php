@@ -94,4 +94,51 @@ class ProjetoController extends Controller
         
         return redirect()->back();
     }
+
+    public function form_editar($id)
+    {
+        $projeto = Projeto::find($id);
+        $conceitos = Conceito::all();
+
+        $id_conceitos_do_projeto = [];
+
+        foreach($projeto->conceitos as $conceito)
+        {
+            $id_conceitos_do_projeto[] = $conceito->id;
+        }
+
+        return view('projeto/form-editar',[
+            'projeto' => $projeto,
+            'conceitos'=> $conceitos,
+            'id_conceitos_do_projeto' => $id_conceitos_do_projeto,
+        ]);
+    }
+
+    public function editar( Request $request, $id)
+    {
+       
+        $projeto = Projeto::find($id);
+
+        $projeto->nome = $request->nome;
+        $projeto->descricao = $request->descricao;
+
+        //anexando novos conceitos
+        //primeiramente, eu removo tudo
+        $projeto->conceitos()->detach();
+
+        if($request->conceitos)
+        {
+            foreach($request->conceitos as $conceito)
+            {
+                $projeto->conceitos()->attach($conceito);
+            }
+        }
+
+        $projeto->save();
+
+        return redirect()->route('listar_projetos');
+
+    }
+
+
 }

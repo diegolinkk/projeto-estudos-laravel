@@ -55,6 +55,9 @@ Route::middleware('auth')->group(function (){
 
         Route::get('projeto/remover/{id}','remover')->name('remover_projeto');
 
+        Route::get('projeto/editar/{id}','form_editar')->name('form_editar_projeto');
+        Route::post('projeto/editar/{id}','editar');
+
     });
 
     Route::controller(EstudoController::class)->group(function(){
