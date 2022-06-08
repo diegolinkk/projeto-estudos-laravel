@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        // TODO: Criar via seeder um usuario padrão, e colocar ele no README.md
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

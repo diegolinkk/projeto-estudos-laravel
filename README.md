@@ -21,33 +21,58 @@ Todo o calendário de estudo dos projetos são registrados.
 ![Histórico de estudos](https://github.com/diegolinkk/projeto-estudos-laravel/blob/main/imagens/hist%C3%B3rico-de-estudos.PNG?raw=true)
 
 ## Requisitos para executar o projeto
-
-### PHP 8
-Ter o PHP 8+ instalado e configurado no ambiente. O PHP pode ser baixado [aqui](https://www.php.net/downloads.php)
-
-### Composer
-Composer é o gerenciador de pacotes do PHP e pode ser baixado [aqui](https://getcomposer.org/download/)
+Git via cli
+Docker  
+docker-compose
 
 
 ## Como executar esse projeto?
 
 Baixar o projeto:
+```bash
+git clone https://github.com/diegolinkk/projeto-estudos-laravel.git
+```
 
 Entrar na pasta do projeto baixado
 
-Executar o script que está na raiz da pasta 'estudos':
 
-```powershell
-.\script_iniciar_projeto.ps1
+## Copiar o .env
+```bash
+cp .env.example .env
+docker-compose up -d --build
 ```
-Esse script vai instalar todas as dependências do composer,configurar o ambiente para 'teste' e criar o banco de dados
 
-## Executar o web server local:
-Agora com todo o ambiente pronto, podemos rodar um servidor web embutido do Laravel para utilizar a aplicação:
 
+## Na primeira vez, efetue a criação de chaves 
+```bash
+docker exec -it appx php artisan key:generate
+docker exec -it appx php artisan config:cache
+docker exec -it appx php artisan config:clear
+docker-compose up -d --force-recreate
 ```
-php artisan serve
+
+### Tip: Alterou uma .env?! use esse cara:
+```bash
+docker-compose up -d --force-recreate
 ```
+
+### Criar o banco sqlite
+```bash
+docker exec -it appx touch database/database.sqlite
+docker exec -it appx php artisan migrate:refresh --seed
+```
+Após rodar os comandos acima, a URL:
+#### Rota de health
+http://localhost/health
+
+#### Raiz
+http://localhost/
+
+## Para acessar o container da aplicação e executar comandos Linux || artisan:
+```bash
+docker exec -it appx bash
+```
+
 
 ## Criar usuário
 A primeira tela pede um login pois o sistema trabalha com autenticação. Basta clicar na opção de 'criar usuário' e criar um usuário para efetuar login e utilizar o sistema normalmente.

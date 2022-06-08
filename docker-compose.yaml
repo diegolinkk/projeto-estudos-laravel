@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  appx:
+    container_name: appx
+    build: .
+    env_file: .env
+    ports:
+      - "80:80"
+    volumes:
+      - .:/app:delegated
+      - ~/.composer:/home/root/.composer:delegated

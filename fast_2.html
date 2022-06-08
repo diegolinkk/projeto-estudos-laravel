@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Conceitos:</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Pontos</th>
+        </tr>
+
+        <tbody id="dataTable">
+        </tbody>
+    </table>
+
+
+    <script>
+        fetch('http://localhost/listar-json')
+            .then(response => {
+                return response.json();
+            })
+            .then(rows => {
+                console.log('rows: ', rows);
+                rows.map(row => {
+                    const templateString = `<tr>
+                    <td>${row.id}</td>
+                    <td>${row.nome}</td>
+                    <td>${row.descricao}</td>
+                    <td>${row.pontos}</td>
+                </tr>`;
+
+                    const dataTable = document.getElementById('dataTable');
+                    dataTable.innerHTML = dataTable.innerHTML + templateString;
+                });
+            });
+    </script>
+</body>
+
+</html>
