@@ -23,8 +23,13 @@
 
                 </div>
                 <div> 
-                    <a href="{{route('form_editar_conceito',['id'=> $conceito->id])}}" class="btn btn-outline-secondary">Editar</a> 
-                    <a href="{{route('remover_conceito',['id' => $conceito->id ])}}" class="btn btn-danger">Excluir</a>
+                    <a href="{{route('form_editar_conceito',['id'=> $conceito->id])}}" class="btn btn-outline-secondary">
+                         <i class="fa-solid fa-pen-to-square"></i> Editar
+                    </a> 
+
+                    <a href="{{route('remover_conceito',['id' => $conceito->id ])}}" class="btn btn-danger"> 
+                        <i class="fa-solid fa-trash"></i> Excluir
+                    </a>
                 </div>
         </div>
     </div>

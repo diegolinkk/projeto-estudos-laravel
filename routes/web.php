@@ -29,6 +29,9 @@ Route::controller(LoginController::class)->group(function(){
 
     Route::get('/login/cadastro','cadastro_form')->name('cadastro_de_usuario');
     Route::post('/login/cadastro','cadastro');
+
+    Route::get('/logout','logout')->name('logout');
+
 });
 
 //agrupamento de rota por middleware e em seguida agrupando por controller

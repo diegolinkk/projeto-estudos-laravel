@@ -21,6 +21,12 @@
                 <a href="{{route('listar_estudo')}}" class="nav-link">Histórico de estudo</a>
             </li>
 
+            
         </ul>
+        <div class="navbar-nav">
+            <li class="nav-item">
+                <a href="{{route('logout')}}" class="btn btn-outline-danger">Logout</a>
+            </li>
+        </div>
     </div>
 </nav>
