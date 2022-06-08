@@ -9,6 +9,17 @@ Para cada progresso em um projeto, todos os conceitos abordados no mesmo recebem
 
 Todo o calendário de estudo dos projetos são registrados.
 
+## Exemplo de imagens
+### Formulário de Login
+![Formulário de Login](https://github.com/diegolinkk/projeto-estudos-laravel/blob/main/imagens/formulario-de-login.PNG?raw=true)
+### Lista de conceitos
+![Lista de conceitos](https://github.com/diegolinkk/projeto-estudos-laravel/blob/main/imagens/lista-de-conceitos.PNG?raw=true)
+### Lista de projetos
+![Lista de projetos](https://github.com/diegolinkk/projeto-estudos-laravel/blob/main/imagens/lista-de-projetos.PNG?raw=true)
+
+### Histórico de estudos
+![Histórico de estudos](https://github.com/diegolinkk/projeto-estudos-laravel/blob/main/imagens/hist%C3%B3rico-de-estudos.PNG?raw=true)
+
 ## Requisitos para executar o projeto
 
 ### PHP 8
@@ -16,6 +27,8 @@ Ter o PHP 8+ instalado e configurado no ambiente. O PHP pode ser baixado [aqui](
 
 ### Composer
 Composer é o gerenciador de pacotes do PHP e pode ser baixado [aqui](https://getcomposer.org/download/)
+
+
 ## Como executar esse projeto?
 
 Baixar o projeto:
