@@ -58,4 +58,11 @@ class ConceitoController extends Controller
         return redirect()->route('listar_conceitos');
     }
 
+    public function remover($id)
+    {
+        $conceito = Conceito::find($id);
+        $conceito->projetos()->detach();
+        $conceito->delete();
+        return redirect()->back();
+    }
 }

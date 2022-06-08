@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function (){
         Route::get('/conceito/editar/{id}','form_editar')->name('form_editar_conceito');
         Route::post('/conceito/editar/{id}','editar');
 
+        Route::get('/conceito/remover/{id}','remover')->name('remover_conceito');
+
     });
     
     Route::controller(ProjetoController::class)->group(function(){

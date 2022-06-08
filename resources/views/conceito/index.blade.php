@@ -22,7 +22,10 @@
                     @endif
 
                 </div>
-                <div> <a href="{{route('form_editar_conceito',['id'=> $conceito->id])}}" class="btn btn-outline-secondary">Editar</a> </div>
+                <div> 
+                    <a href="{{route('form_editar_conceito',['id'=> $conceito->id])}}" class="btn btn-outline-secondary">Editar</a> 
+                    <a href="{{route('remover_conceito',['id' => $conceito->id ])}}" class="btn btn-danger">Excluir</a>
+                </div>
         </div>
     </div>
     @endforeach
