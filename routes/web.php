@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ConceitoController;
-use App\Http\Controllers\EstudarController;
 use App\Http\Controllers\EstudoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjetoController;
@@ -22,6 +21,11 @@ Route::get('/', function () {
     return redirect()->route('listar_conceitos');
 })->middleware('auth');
 
+Route::get('/health', function () {
+    return 'ok';
+});
+
+
 //agrupando por controller
 Route::controller(LoginController::class)->group(function(){
     Route::get('/login','index')->name('login');
@@ -32,6 +36,10 @@ Route::controller(LoginController::class)->group(function(){
 
     Route::get('/logout','logout')->name('logout');
 
+});
+
+Route::controller(ConceitoController::class)->group(function() {
+    Route::get('listar-json','listarJson');
 });
 
 //agrupamento de rota por middleware e em seguida agrupando por controller
@@ -52,7 +60,7 @@ Route::middleware('auth')->group(function (){
         Route::get('/conceito/remover/{id}','remover')->name('remover_conceito');
 
     });
-    
+
     Route::controller(ProjetoController::class)->group(function(){
         Route::get('/projeto/cadastro','cadastro_form')->name('cadastro_de_projeto');
         Route::post('/projeto/cadastro','cadastro');

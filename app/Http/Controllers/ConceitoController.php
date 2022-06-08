@@ -19,6 +19,7 @@ class ConceitoController extends Controller
         $conceito = new Conceito();
         $usuario = Auth::user();
 
+        // TODO: Validar campos, vazio, campo com caracter pipipithcu
         $conceito->nome = $request->nome;
         $conceito->descricao = $request->descricao;
         $conceito->user_id = $usuario->id;
@@ -34,6 +35,11 @@ class ConceitoController extends Controller
         return view('conceito/index',[
             'conceitos' => $conceitos,
         ]);
+    }
+
+    public function listarJson()
+    {
+        return Conceito::all();
     }
 
     public function form_editar($id)
