@@ -22,6 +22,7 @@
                     @endif
 
                 </div>
+                <div> <a href="{{route('form_editar_conceito',['id'=> $conceito->id])}}" class="btn btn-outline-secondary">Editar</a> </div>
         </div>
     </div>
     @endforeach

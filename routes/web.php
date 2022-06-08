@@ -42,6 +42,10 @@ Route::middleware('auth')->group(function (){
 
         Route::get('/conceito/cadastro','cadastro_form')->name('cadastro_de_conceito');
         Route::post('/conceito/cadastro','cadastro');
+
+        Route::get('/conceito/editar/{id}','form_editar')->name('form_editar_conceito');
+        Route::post('/conceito/editar/{id}','editar');
+
     });
     
     Route::controller(ProjetoController::class)->group(function(){
