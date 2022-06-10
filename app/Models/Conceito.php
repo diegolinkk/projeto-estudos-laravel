@@ -9,6 +9,8 @@ class Conceito extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nome','descricao','user_id'];
+
     public function usuario()
     {
         return $this->belongsTo(User::class);
