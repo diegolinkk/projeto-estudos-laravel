@@ -1,12 +1,11 @@
 # Gerenciador de Estudos
 Gerenciador de estudos feito em Laravel.
+Você pode usar o app clicando [aqui](http://projeto-estudos.herokuapp.com/)
 
 ## Como ele funciona ?
 
 Você cria "conceitos" que gostaria de aprender/aperfeiçoar. A partir daí, você cria projetos que abordam esses conceitos e registra o progresso de estudo desses projetos.
-
 Para cada progresso em um projeto, todos os conceitos abordados no mesmo recebem uma pontuação +1.
-
 Todo o calendário de estudo dos projetos são registrados.
 
 ## Exemplo de imagens
