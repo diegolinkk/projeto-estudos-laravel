@@ -7,8 +7,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
+
+
 class ConceitoController extends Controller
 {
+
+    private function validaCadastro(Request $request){
+        $request->validate([
+            'nome' => 'required|min:3',
+            'descricao' => 'required|min:3'
+        ]);
+    }
+
     public function cadastro_form()
     {
         return view('conceito/cadastro');
@@ -16,6 +27,9 @@ class ConceitoController extends Controller
 
     public function cadastro(Request $request)
     {
+
+        $this->validaCadastro($request);
+
         $conceito = new Conceito();
         $usuario = Auth::user();
 
@@ -52,6 +66,9 @@ class ConceitoController extends Controller
 
     public function editar( Request $request, $id)
     {
+
+        $this->validaCadastro($request);
+
         DB::beginTransaction();
             $conceito = Conceito::find($id);
             $conceito->nome = $request->nome;

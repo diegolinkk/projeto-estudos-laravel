@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjetoRequest;
 use App\Models\Conceito;
 use App\Models\Estudo;
 use App\Models\Projeto;
@@ -20,7 +21,7 @@ class ProjetoController extends Controller
         ]);
     }
 
-    public function cadastro(Request $request)
+    public function cadastro(ProjetoRequest $request)
     {
         //pegando dados - ok
         $nome = $request->nome;
@@ -114,7 +115,7 @@ class ProjetoController extends Controller
         ]);
     }
 
-    public function editar( Request $request, $id)
+    public function editar( ProjetoRequest $request, $id)
     {
        
         $projeto = Projeto::find($id);
