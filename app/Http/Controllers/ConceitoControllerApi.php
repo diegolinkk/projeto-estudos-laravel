@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Conceito;
 use App\Interfaces\ConceitoRepositoryInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -38,7 +37,6 @@ class ConceitoControllerApi extends Controller
         return response()->json([
             'data' => $this->conceitoRepository->createConceito($conceitoDetails)
         ],
-        Response::HTTP_CREATED
     );
     }
 
@@ -68,6 +66,6 @@ class ConceitoControllerApi extends Controller
     {
         $conceitoId = $id;
         $this->conceitoRepository->deleteConceito($conceitoId);
-        return response()->json(null,Response::HTTP_NO_CONTENT);
+        return response()->json(null);
     }
 }
