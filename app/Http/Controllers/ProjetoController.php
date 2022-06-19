@@ -48,7 +48,9 @@ class ProjetoController extends Controller
 
     public function listar()
     {
-        $projetos = Projeto::all();
+        //retorna somente projetos não concluidos
+        $projetos = Projeto::where('feito',false)->get();
+        
         return view('projeto/index',[
             'projetos' => $projetos,
         ]);
@@ -139,6 +141,17 @@ class ProjetoController extends Controller
 
         return redirect()->route('listar_projetos');
 
+    }
+
+    public function concluir($id)
+    {
+        DB::beginTransaction();
+        $projeto = Projeto::find($id);
+        $projeto->feito = true;
+        $projeto->save();
+        DB::commit();
+
+        return redirect()->back();
     }
 
 

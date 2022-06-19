@@ -75,6 +75,8 @@ Route::middleware('auth')->group(function (){
         Route::get('projeto/editar/{id}','form_editar')->name('form_editar_projeto');
         Route::post('projeto/editar/{id}','editar');
 
+        Route::get('projeto/concluir/{id}','concluir')->name('concluir_projeto');
+
     });
 
     Route::controller(EstudoController::class)->group(function(){

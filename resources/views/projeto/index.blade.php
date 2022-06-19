@@ -33,6 +33,9 @@ Lista de projetos
                     onclick="return confirm('Tem certeza que deseja remover o projeto?');" 
                     href="{{route('remover_projeto',['id' => $projeto->id ])}}" 
                     class="btn btn-outline-danger"> <i class="fa-solid fa-trash"></i> Remover</a> 
+                    <a onclick="return confirm('tem certeza que deseja concluir o projeto?');"
+                    href="{{route('concluir_projeto',['id' => $projeto->id])}}" 
+                    class="btn btn-outline-primary"> <i class="fa-solid fa-check"></i> Concluir Projeto</a>
                 </div>
 
             </div>
